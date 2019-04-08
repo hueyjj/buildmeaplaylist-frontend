@@ -1,4 +1,4 @@
-# buildmeaplaylist-frontend
+# buildmeaplaylist-web
 Frontend React server for BuildMeAPlaylist.com
 
 ## Overview
