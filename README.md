@@ -42,5 +42,6 @@ Current hosting tier is $5/month.
 - Curl
 - M-m-m-mechanical keyboard (ikbc-f87)
 - Discord (Gopher's discord)
+- PgAdmin III
 - DigitalOcean
 - Docker (later)
