@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Typography from '@material-ui/core/Typography';
 
 const styles = theme =>({
   itemRoot: {
@@ -31,13 +29,7 @@ class PlaylistItem extends Component {
 
   renderDetails = () => {
     const { 
-      classes,
-      songTitle,
-      artist,
-      user,
-      date,
       youtubeURL,
-      upvotes,
     } = this.props;
 
     if (!this.state.isExpanded) {
