@@ -64,7 +64,9 @@ Explore
 ![Explore page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/explorepage.png)
 Ask
 ![Ask page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/askpage.png)
-Playlists
-![Playlists page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/playlistspage.png)
+Playlist
+![Playlist page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/playlistpage.png)
+Playlists expanded
+![Playlists expanded page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/playlistsexpandedpage.png)
 Choose
 ![Choosing page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/choosepage.png)
