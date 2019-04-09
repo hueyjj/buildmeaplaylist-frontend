@@ -74,8 +74,7 @@ class LandingPage extends Component {
           elevation={1}
           square="false"
         >
-          <Typography
-          >
+          <Typography>
             TODO: fill in landing page (static site (serve separate index.html), nginx switch to home (react server) if valid session?)
             Fill in home page
             <Divider />

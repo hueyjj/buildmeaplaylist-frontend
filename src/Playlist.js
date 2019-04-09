@@ -9,7 +9,19 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Paper from '@material-ui/core/Paper';
+import SwipeableViews from 'react-swipeable-views';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import PlaylistItem from './PlaylistItem';
 import Divider from '@material-ui/core/Divider';
+
+function TabContainer({ children, dir }) {
+  return (
+    <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
+      {children}
+    </Typography>
+  );
+}
 
 const styles = theme =>({
   root: {
@@ -18,11 +30,12 @@ const styles = theme =>({
   grow: {
     flexGrow: 1,
   },
-  optionPaper: {
+  askingPaper: {
     ...theme.mixins.gutters(),
     alignItems: "center",
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2,
     marginTop: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
     marginLeft: theme.spacing.unit * 2,
@@ -37,6 +50,60 @@ const styles = theme =>({
 });
 
 class Playlist extends Component {
+  state = {
+    value: 0,
+  }
+
+  handleChangeTab = (event, value) => {
+    this.setState({ value })
+  }
+
+  handleChangeTabIndex = index => {
+    this.setState({ value: index })
+  }
+
+  getAllPlaylistItems = () => {
+    return (
+      <React.Fragment>
+        <PlaylistItem
+          songTitle="She will be loved"
+          artist="Maroon 5"
+          user="hueyjj"
+          date="August 20, 2020"
+          youtubeUrl="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+          upvotes={50}
+        />
+        <Divider/>
+        <PlaylistItem
+          songTitle="She will be loved"
+          artist="Maroon 5"
+          user="hueyjj"
+          date="August 20, 2020"
+          youtubeUrl="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+          upvotes={50}
+        />
+        <Divider/>
+        <PlaylistItem
+          songTitle="She will be loved"
+          artist="Maroon 5"
+          user="hueyjj"
+          date="August 20, 2020"
+          youtubeUrl="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+          upvotes={50}
+        />
+        <Divider/>
+        <PlaylistItem
+          songTitle="She will be loved"
+          artist="Maroon 5"
+          user="hueyjj"
+          date="August 20, 2020"
+          youtubeUrl="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+          upvotes={50}
+        />
+      </React.Fragment>
+    );
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -70,53 +137,35 @@ class Playlist extends Component {
           </Toolbar>
         </AppBar>
         <Paper
-          className={classes.optionPaper}
+          className={classes.askingPaper}
           elevation={1}
           square="false"
         >
-          <Typography
-          >
-            TODO: fill in landing page (static site (serve separate index.html), nginx switch to home (react server) if valid session?)
-            Fill in home page
-            <Divider />
-            <Button 
-              component={Link}
-              to="/explore"
-              color="inherit"
-            >
-              Explore
-            </Button>
-            /explore
-            <Divider />
-            <Button
-              component={Link}
-              to="/ask"
-              color="inherit"
-            >
-              Ask music
-            </Button>
-            /ask
-            <Divider />
-            <Button
-              component={Link}
-              to="/playlists"
-              color="inherit"
-            >
-              My playlists
-            </Button>
-            /playlist/[HASH]
-            <Divider />
-            <Button
-              component={Link}
-              to="/search"
-              color="inherit"
-            >
-              Playlist
-            </Button>
-            /search (do we even need this?)
-            <Divider/>
-          </Typography>
         </Paper>
+        <AppBar position="static" color="default">
+          <Tabs
+            value={this.state.value}
+            onChange={this.handleChangeTab}
+            indicatorColor="primary"
+            textColor="primary"
+            variant="fullWidth"
+          >
+            <Tab label="All" />
+            <Tab label="Added" />
+            <Tab label="Removed" />
+            <Tab label="Current playlist" />
+          </Tabs>
+        </AppBar>
+        <SwipeableViews
+          //axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          index={this.state.value}
+          onChangeIndex={this.handleChangeTabIndex}
+        >
+          <TabContainer>{this.getAllPlaylistItems()}</TabContainer>
+          <TabContainer>Item Two</TabContainer>
+          <TabContainer>Item Three</TabContainer>
+          <TabContainer>Item Four</TabContainer>
+        </SwipeableViews>
       </React.Fragment>
     );
   }
