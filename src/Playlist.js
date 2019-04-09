@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
@@ -14,6 +13,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PlaylistItem from './PlaylistItem';
 import Divider from '@material-ui/core/Divider';
+import Avatar from '@material-ui/core/Avatar';
+import Grid from '@material-ui/core/Grid';
 
 function TabContainer({ children, dir }) {
   return (
@@ -40,12 +41,19 @@ const styles = theme => ({
     marginRight: theme.spacing.unit * 2,
     marginLeft: theme.spacing.unit * 2,
   },
+  userInfo: {
+    paddingTop: theme.spacing.unit * 2,
+  },
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
   },
   toolBar: {
     minHeight: 0,
+  },
+  bigAvatar: {
+    width: 60,
+    height: 60,
   },
 });
 
@@ -183,10 +191,31 @@ class Playlist extends Component {
           elevation={1}
           square="false"
         >
-        Profile pictures here, username,      date
-        music like: 
-        embedded:
-        text:
+          <Grid container spacing={16}>
+            <Grid item> 
+              <Avatar
+                className={classes.bigAvatar}
+                alt="Jasper Jeng"
+                src="/static/profilepic.jpeg"
+              />
+            </Grid>
+            <Grid item xs={12} sm container>
+              <Grid item xs>
+                <Typography 
+                  className={classes.userInfo}
+                  align="left"
+                  variant='h6'
+                >
+                  Jasper Jeng @ hueyjj
+              </Typography>
+              </Grid>
+              <Grid item xs>
+                <Typography align="right">
+                  April 08, 2019
+              </Typography>
+              </Grid>
+            </Grid>
+          </Grid>
         </Paper>
         <AppBar position="static" color="default">
           <Tabs
