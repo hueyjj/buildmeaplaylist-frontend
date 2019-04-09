@@ -6,16 +6,17 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Header from './Header';
+import DeleteIcon from '@material-ui/icons/Delete';
+import DoneIcon from '@material-ui/icons/Done';
+import Button from '@material-ui/core/Button';
 
 const music = [
   { songTitle: "Misery", artist: "Maroon 5", user: "hueyjj", date: "April 12, 2019", youtubeURL: "https://www.youtube.com/watch?v=6g6g2mvItp4", thumbsUp: 120 },
@@ -38,6 +39,10 @@ const styles = theme =>({
   media: {
     height: "400px",
   },
+  button: {
+    height: "50px",
+    margin: "50px",
+  },
 });
 
 class Choose extends Component {
@@ -46,7 +51,11 @@ class Choose extends Component {
   }
 
   handleIncrementIndex = () => {
-    this.setState({index: this.state.index + 1})
+    if (this.state.index + 1 > 4) {
+      this.setState({ index: 0 })
+    } else {
+      this.setState({ index: this.state.index + 1 })
+    }
   }
 
   renderCard = () => {
@@ -58,6 +67,15 @@ class Choose extends Component {
 
     return(
       <div className={classes.cardContainer}>
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.button}
+          onClick={this.handleIncrementIndex}
+        >
+          Delete
+          <DeleteIcon className={classes.rightIcon} />
+        </Button>
         <Card className={classes.card}>
           <CardHeader
             avatar={
@@ -95,6 +113,15 @@ class Choose extends Component {
             </IconButton>
           </CardActions>
         </Card>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          onClick={this.handleIncrementIndex}
+        >
+          Add
+          <DoneIcon className={classes.rightIcon} />
+        </Button>
       </div>
     );
   }
