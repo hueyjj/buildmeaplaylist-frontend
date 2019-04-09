@@ -45,3 +45,14 @@ Current hosting tier is $5/month.
 - PgAdmin III
 - DigitalOcean
 - Docker (later)
+
+# Running
+`npm install`
+
+`npm start`
+
+# Build
+`npm build`
+
+# Serving
+`serve -s build -l 3000 &`
