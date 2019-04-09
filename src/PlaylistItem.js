@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme =>({
   itemRoot: {
@@ -35,20 +40,25 @@ class PlaylistItem extends Component {
       upvotes,
     } = this.props;
 
-    return(
-      <ListItem
-        button
-        className={classes.itemRoot}
-        onClick={this.handleToggle}
-      >
-        <ListItemText classes={{ primary: classes.itemText }} primary={songTitle} />
-        <ListItemText classes={{ primary: classes.itemText }} primary={artist} />
-        <ListItemText classes={{ primary: classes.itemText }} primary={artist} />
-        <ListItemText classes={{ primary: classes.itemText }} primary={user} />
-        <ListItemText classes={{ primary: classes.itemText }} primary={date} />
-        <ListItemText classes={{ primary: classes.itemText }} primary={youtubeURL} />
-        <ListItemText classes={{ primary: classes.itemText }} primary={upvotes} />
-      </ListItem>
+    return (
+      <ExpansionPanel>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          {/* <Typography className={classes.heading}>Expansion Panel 1</Typography> */}
+          <ListItemText classes={{ primary: classes.itemText }} primary={songTitle} />
+          <ListItemText classes={{ primary: classes.itemText }} primary={artist} />
+          <ListItemText classes={{ primary: classes.itemText }} primary={artist} />
+          <ListItemText classes={{ primary: classes.itemText }} primary={user} />
+          <ListItemText classes={{ primary: classes.itemText }} primary={date} />
+          <ListItemText classes={{ primary: classes.itemText }} primary={youtubeURL} />
+          <ListItemText classes={{ primary: classes.itemText }} primary={upvotes} />
+        </ExpansionPanelSummary>
+        {/* <ListItem
+          button
+          className={classes.itemRoot}
+          onClick={this.handleToggle}
+        >
+        </ListItem> */}
+      </ExpansionPanel>
     );
   }
 }
