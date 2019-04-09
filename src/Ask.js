@@ -9,17 +9,12 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
 import Header from './Header';
 
 const styles = theme =>({
-  root: {
-    flexGrow: 1,
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  optionPaper: {
+  askPaper: {
     ...theme.mixins.gutters(),
     alignItems: "center",
     paddingTop: theme.spacing.unit * 2,
@@ -27,13 +22,6 @@ const styles = theme =>({
     marginTop: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
     marginLeft: theme.spacing.unit * 2,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-  toolBar: {
-    minHeight: 0,
   },
 });
 
@@ -46,10 +34,39 @@ class Ask extends Component {
         <CssBaseline />
         <Header />
         <Paper
-          className={classes.optionPaper}
+          className={classes.askPaper}
           elevation={1}
           square="false"
         >
+          <TextField
+            id="youtube-url-input"
+            label="Enter a youtube url"
+            placeholder="https://www.youtube.com/watch?v=eVTXPUF4Oz4"
+            helperText=""
+            fullWidth
+            margin="normal"
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+          <TextField
+            id="description-input"
+            label="Description (why this music?)"
+            multiline
+            rows="10"
+            placeholder="This particular music made me feel all warm and fuzzy in the inside"
+            className={classes.textField}
+            fullWidth
+            margin="normal"
+          />
+          <Button
+            variant="contained"
+            color="secondary"
+            component={Link}
+            to="/playlists"
+          >
+            Submit question
+          </Button>
         </Paper>
       </React.Fragment>
     );

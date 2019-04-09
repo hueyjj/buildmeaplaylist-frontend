@@ -10,6 +10,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
+import SearchIcon from '@material-ui/icons/Search';
+import CreateIcon from '@material-ui/icons/Create';
+import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
+import ThumbsUpDownIcon from '@material-ui/icons/ThumbsUpDown';
 import Header from './Header';
 
 const styles = theme =>({
@@ -19,7 +23,7 @@ const styles = theme =>({
   grow: {
     flexGrow: 1,
   },
-  optionPaper: {
+  landingPaper: {
     ...theme.mixins.gutters(),
     alignItems: "center",
     paddingTop: theme.spacing.unit * 2,
@@ -35,6 +39,9 @@ const styles = theme =>({
   toolBar: {
     minHeight: 0,
   },
+  rightIcon: {
+    marginRight: theme.spacing.unit * 2,
+  },
 });
 
 class LandingPage extends Component {
@@ -46,7 +53,7 @@ class LandingPage extends Component {
         <CssBaseline />
         <Header />
         <Paper
-          className={classes.optionPaper}
+          className={classes.landingPaper}
           elevation={1}
           square="false"
         >
@@ -59,6 +66,7 @@ class LandingPage extends Component {
               to="/explore"
               color="inherit"
             >
+              <SearchIcon className={classes.rightIcon} />
               Explore
             </Button>
             /explore
@@ -68,6 +76,7 @@ class LandingPage extends Component {
               to="/ask"
               color="inherit"
             >
+              <CreateIcon className={classes.rightIcon} />
               Ask music
             </Button>
             /ask
@@ -77,6 +86,7 @@ class LandingPage extends Component {
               to="/playlists"
               color="inherit"
             >
+              <PlaylistAddCheckIcon className={classes.rightIcon} />
               My playlists
             </Button>
             /playlists/[HASH]
@@ -86,6 +96,7 @@ class LandingPage extends Component {
               to="/choose"
               color="inherit"
             >
+              <ThumbsUpDownIcon className={classes.rightIcon} />
               Choose
             </Button>
             /choose 

@@ -23,7 +23,7 @@ const thread = {
 };
 
 const styles = theme =>({
-  askingPaper: {
+  explorePaper: {
     ...theme.mixins.gutters(),
     alignItems: "center",
     paddingTop: theme.spacing.unit * 2,
@@ -70,7 +70,7 @@ class Explore extends Component {
         <CssBaseline />
         <Header />
         <Paper
-          className={classes.askingPaper}
+          className={classes.explorePaper}
           elevation={1}
           square="false"
         >
