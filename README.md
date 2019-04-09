@@ -56,3 +56,15 @@ Current hosting tier is $5/month.
 
 # Serving
 `serve -s build -l 3000 &`
+
+# Screenshots (April 09, 2019)
+Landing page
+![Landing page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/landingpage.png)
+Explore
+![Explore page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/explorepage.png)
+Ask
+![Ask page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/askpage.png)
+Playlists
+![Playlists page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/playlistspage.png)
+Choose
+![Choosing page](https://raw.githubusercontent.com/hueyjj/buildmeaplaylist-web/master/screenshots/choosepage.png)
