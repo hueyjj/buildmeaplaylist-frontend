@@ -35,7 +35,7 @@ class PlaylistItem extends Component {
     this.setState({ isExpanded: expanded });
   }
 
-  render()  {
+  renderDetails = () => {
     const { 
       classes,
       songTitle,
@@ -46,8 +46,38 @@ class PlaylistItem extends Component {
       upvotes,
     } = this.props;
 
+    if (!this.state.isExpanded) {
+      return null;
+    }
+
     const youtubeID = youtubeURL.split("v=")[1];
     const embedYoutubeURL = "https://youtube.com/embed/" + youtubeID;
+
+    return (
+      <iframe
+        style={{
+          //position: "absolute",
+          top: 0,
+          left: 0,
+          width: "200px",
+          height: "200px",
+        }}
+        src={embedYoutubeURL}
+        frameBorder="0"
+      />
+    );
+  }
+
+  render() {
+    const { 
+      classes,
+      songTitle,
+      artist,
+      user,
+      date,
+      youtubeURL,
+      upvotes,
+    } = this.props;
 
     return (
       <ExpansionPanel onChange={this.handleToggle}>
@@ -62,19 +92,7 @@ class PlaylistItem extends Component {
           <ListItemText classes={{ primary: classes.itemText }} primary={upvotes} />
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          {this.state.isExpanded ?
-          <iframe
-            style={{
-              //position: "absolute",
-              top: 0,
-              left: 0,
-              width: "500px",
-              height: "500px",
-            }}
-            src={embedYoutubeURL}
-            frameBorder="0"
-        /> : null
-          }
+          {this.renderDetails()}
         </ExpansionPanelDetails>
       </ExpansionPanel>
     );
