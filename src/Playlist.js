@@ -23,7 +23,7 @@ function TabContainer({ children, dir }) {
   );
 }
 
-const styles = theme =>({
+const styles = theme => ({
   root: {
     flexGrow: 1,
   },
@@ -62,44 +62,86 @@ class Playlist extends Component {
     this.setState({ value: index })
   }
 
-  getAllPlaylistItems = () => {
+  getAllMusic = () => {
     return (
       <React.Fragment>
-        <PlaylistItem
-          songTitle="She will be loved"
-          artist="Maroon 5"
-          user="hueyjj"
-          date="August 20, 2020"
-          youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
-          upvotes={50}
-        />
-        <Divider/>
-        <PlaylistItem
-          songTitle="She will be loved"
-          artist="Maroon 5"
-          user="hueyjj"
-          date="August 20, 2020"
-          youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
-          upvotes={50}
-        />
-        <Divider/>
-        <PlaylistItem
-          songTitle="She will be loved"
-          artist="Maroon 5"
-          user="hueyjj"
-          date="August 20, 2020"
-          youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
-          upvotes={50}
-        />
-        <Divider/>
-        <PlaylistItem
-          songTitle="She will be loved"
-          artist="Maroon 5"
-          user="hueyjj"
-          date="August 20, 2020"
-          youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
-          upvotes={50}
-        />
+        {[...Array(20).keys()].map(i => (
+          <React.Fragment>
+          <PlaylistItem
+            index={i}
+            songTitle="She will be loved"
+            artist="Maroon 5"
+            user="hueyjj"
+            date="August 20, 2020"
+            youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+            upvotes={50}
+          />
+          <Divider/>
+          </React.Fragment>
+        ))}
+      </React.Fragment>
+    );
+  }
+
+  getAddedMusic = () => {
+    return (
+      <React.Fragment>
+        {[...Array(20).keys()].map(i => (
+          <React.Fragment>
+          <PlaylistItem
+            index={i}
+            songTitle="She will be loved"
+            artist="Maroon 5"
+            user="hueyjj"
+            date="August 20, 2020"
+            youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+            upvotes={50}
+          />
+          <Divider/>
+          </React.Fragment>
+        ))}
+      </React.Fragment>
+    );
+  }
+
+  getRemovedMusic = () => {
+    return (
+      <React.Fragment>
+        {[...Array(20).keys()].map(i => (
+          <React.Fragment>
+          <PlaylistItem
+            index={i}
+            songTitle="She will be loved"
+            artist="Maroon 5"
+            user="hueyjj"
+            date="August 20, 2020"
+            youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+            upvotes={50}
+          />
+          <Divider/>
+          </React.Fragment>
+        ))}
+      </React.Fragment>
+    );
+  }
+  
+  getCurrentPlaylist= () => {
+    return (
+      <React.Fragment>
+        {[...Array(20).keys()].map(i => (
+          <React.Fragment>
+          <PlaylistItem
+            index={i}
+            songTitle="She will be loved"
+            artist="Maroon 5"
+            user="hueyjj"
+            date="August 20, 2020"
+            youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+            upvotes={50}
+          />
+          <Divider/>
+          </React.Fragment>
+        ))}
       </React.Fragment>
     );
   }
@@ -141,6 +183,10 @@ class Playlist extends Component {
           elevation={1}
           square="false"
         >
+        Profile pictures here, username,      date
+        music like: 
+        embedded:
+        text:
         </Paper>
         <AppBar position="static" color="default">
           <Tabs
@@ -161,10 +207,11 @@ class Playlist extends Component {
           index={this.state.value}
           onChangeIndex={this.handleChangeTabIndex}
         >
-          <TabContainer>{this.getAllPlaylistItems()}</TabContainer>
-          <TabContainer>Item Two</TabContainer>
-          <TabContainer>Item Three</TabContainer>
-          <TabContainer>Item Four</TabContainer>
+          {/* TODO: Must do lazy load. Rendering each PlaylistItem is too expensive */}
+          <TabContainer>{this.getAllMusic()}</TabContainer>
+          <TabContainer>{this.getAddedMusic()}</TabContainer>
+          <TabContainer>{this.getRemovedMusic()}</TabContainer>
+          <TabContainer>{this.getCurrentPlaylist()}</TabContainer>
         </SwipeableViews>
       </React.Fragment>
     );

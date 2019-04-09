@@ -71,25 +71,26 @@ class PlaylistItem extends Component {
   render() {
     const { 
       classes,
+      index,
       songTitle,
       artist,
       user,
       date,
       youtubeURL,
-      upvotes,
+      thumbsUp,
     } = this.props;
 
     return (
       <ExpansionPanel onChange={this.handleToggle}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           {/* <Typography className={classes.heading}>Expansion Panel 1</Typography> */}
+          <ListItemText classes={{ primary: classes.itemText }} primary={index} />
           <ListItemText classes={{ primary: classes.itemText }} primary={songTitle} />
-          <ListItemText classes={{ primary: classes.itemText }} primary={artist} />
           <ListItemText classes={{ primary: classes.itemText }} primary={artist} />
           <ListItemText classes={{ primary: classes.itemText }} primary={user} />
           <ListItemText classes={{ primary: classes.itemText }} primary={date} />
           <ListItemText classes={{ primary: classes.itemText }} primary={youtubeURL} />
-          <ListItemText classes={{ primary: classes.itemText }} primary={upvotes} />
+          <ListItemText classes={{ primary: classes.itemText }} primary={thumbsUp} />
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           {this.renderDetails()}
