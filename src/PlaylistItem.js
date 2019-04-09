@@ -16,6 +16,12 @@ const styles = theme =>({
   itemText: {
     fontSize: "small",
   },
+  youtube: {
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  },
 });
 
 //PlaylistItem creates a playlist item, and when clicked, it expands to
@@ -25,8 +31,8 @@ class PlaylistItem extends Component {
     isExpanded: false,
   }
 
-  handleToggle= () => {
-    this.setState({ isExpanded: !this.isExpanded });
+  handleToggle= (event, expanded) => {
+    this.setState({ isExpanded: expanded });
   }
 
   render()  {
@@ -40,8 +46,11 @@ class PlaylistItem extends Component {
       upvotes,
     } = this.props;
 
+    const youtubeID = youtubeURL.split("v=")[1];
+    const embedYoutubeURL = "https://youtube.com/embed/" + youtubeID;
+
     return (
-      <ExpansionPanel>
+      <ExpansionPanel onChange={this.handleToggle}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           {/* <Typography className={classes.heading}>Expansion Panel 1</Typography> */}
           <ListItemText classes={{ primary: classes.itemText }} primary={songTitle} />
@@ -52,12 +61,21 @@ class PlaylistItem extends Component {
           <ListItemText classes={{ primary: classes.itemText }} primary={youtubeURL} />
           <ListItemText classes={{ primary: classes.itemText }} primary={upvotes} />
         </ExpansionPanelSummary>
-        {/* <ListItem
-          button
-          className={classes.itemRoot}
-          onClick={this.handleToggle}
-        >
-        </ListItem> */}
+        <ExpansionPanelDetails>
+          {this.state.isExpanded ?
+          <iframe
+            style={{
+              //position: "absolute",
+              top: 0,
+              left: 0,
+              width: "500px",
+              height: "500px",
+            }}
+            src={embedYoutubeURL}
+            frameBorder="0"
+        /> : null
+          }
+        </ExpansionPanelDetails>
       </ExpansionPanel>
     );
   }

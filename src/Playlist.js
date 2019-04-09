@@ -70,7 +70,7 @@ class Playlist extends Component {
           artist="Maroon 5"
           user="hueyjj"
           date="August 20, 2020"
-          youtubeUrl="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+          youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
           upvotes={50}
         />
         <Divider/>
@@ -79,7 +79,7 @@ class Playlist extends Component {
           artist="Maroon 5"
           user="hueyjj"
           date="August 20, 2020"
-          youtubeUrl="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+          youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
           upvotes={50}
         />
         <Divider/>
@@ -88,7 +88,7 @@ class Playlist extends Component {
           artist="Maroon 5"
           user="hueyjj"
           date="August 20, 2020"
-          youtubeUrl="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+          youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
           upvotes={50}
         />
         <Divider/>
@@ -97,7 +97,7 @@ class Playlist extends Component {
           artist="Maroon 5"
           user="hueyjj"
           date="August 20, 2020"
-          youtubeUrl="https://www.youtube.com/watch?v=nIjVuRTm-dc"
+          youtubeURL="https://www.youtube.com/watch?v=nIjVuRTm-dc"
           upvotes={50}
         />
       </React.Fragment>
