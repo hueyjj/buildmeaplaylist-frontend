@@ -10,34 +10,58 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import Header from './Header';
 
+const thread = {
+  title: "Looking for music like She Will Be Loved by Maroon 5",
+  user: "hueyjj",
+  date: "December 25, 2019",
+  upvotes: 682,
+};
+
 const styles = theme =>({
-  root: {
-    flexGrow: 1,
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  optionPaper: {
+  askingPaper: {
     ...theme.mixins.gutters(),
     alignItems: "center",
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2,
     marginTop: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
     marginLeft: theme.spacing.unit * 2,
   },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-  toolBar: {
-    minHeight: 0,
+  itemText: {
+    fontSize: "small",
   },
 });
 
 class Explore extends Component {
+  renderThreads = () => {
+    const { classes } = this.props;
+
+    return (
+      <React.Fragment>
+        {[...Array(100).keys()].map(index => (
+          <ListItem 
+            button
+            component={Link}
+            to="/playlists"
+            color="inherit"
+          >
+            <ListItemText classes={{ primary: classes.itemText }} primary={index} />
+            <ListItemText classes={{ primary: classes.itemText }} primary={thread.upvotes + " upvotes"} />
+            <ListItemText classes={{ primary: classes.itemText }} primary={thread.title} />
+            <ListItemText classes={{ primary: classes.itemText }} primary={thread.user} />
+            <ListItemText classes={{ primary: classes.itemText }} primary={thread.date} />
+          </ListItem>
+        ))}
+      </React.Fragment>
+    );
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -45,6 +69,15 @@ class Explore extends Component {
       <React.Fragment>
         <CssBaseline />
         <Header />
+        <Paper
+          className={classes.askingPaper}
+          elevation={1}
+          square="false"
+        >
+        <List>
+          {this.renderThreads()}
+        </List>
+        </Paper>
       </React.Fragment>
     );
   }
