@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
@@ -19,6 +20,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Header from './Header';
 
 function TabContainer({ children, dir }) {
   return (
@@ -208,32 +210,7 @@ class Playlist extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <AppBar 
-          position="static"
-          color="default"
-        >
-          <Toolbar
-            className={classes.toolBar}
-          >
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="Menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              className={classes.grow}
-              color="inherit"
-              align="center"
-              variant="h6"
-            >
-              Build me a playlist
-          </Typography>
-            <Button color="inherit">Signup</Button>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
+        <Header />
         <Paper
           className={classes.askingPaper}
           elevation={1}

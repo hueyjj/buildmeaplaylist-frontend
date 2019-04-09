@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Paper from '@material-ui/core/Paper';
-import Divider from '@material-ui/core/Divider';
 import Header from './Header';
 
 const styles = theme =>({
@@ -37,7 +28,7 @@ const styles = theme =>({
   },
 });
 
-class Ask extends Component {
+class Choose extends Component {
   render() {
     const { classes } = this.props;
 
@@ -45,15 +36,9 @@ class Ask extends Component {
       <React.Fragment>
         <CssBaseline />
         <Header />
-        <Paper
-          className={classes.optionPaper}
-          elevation={1}
-          square="false"
-        >
-        </Paper>
       </React.Fragment>
     );
   }
 }
 
-export default withStyles(styles)(Ask);
+export default withStyles(styles)(Choose);

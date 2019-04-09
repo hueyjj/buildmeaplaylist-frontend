@@ -5,7 +5,7 @@ import LandingPage from './LandingPage';
 import Explore from './Explore';
 import Ask from './Ask';
 import Playlist from './Playlist';
-import Search from './Search';
+import Choose from './Choose';
 
 const styles = theme =>({
   root: {
@@ -43,7 +43,7 @@ class App extends Component {
           <Route path='/explore' component={Explore}/>
           <Route path='/ask' component={Ask}/>
           <Route path='/playlists' component={Playlist}/>
-          <Route path='/search' component={Search}/>
+          <Route path='/choose' component={Choose}/>
         </Switch>
       </React.Fragment>
     );

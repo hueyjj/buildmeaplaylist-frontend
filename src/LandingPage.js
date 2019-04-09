@@ -10,6 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
+import Header from './Header';
 
 const styles = theme =>({
   root: {
@@ -43,32 +44,7 @@ class LandingPage extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <AppBar 
-          position="static"
-          color="default"
-        >
-          <Toolbar
-            className={classes.toolBar}
-          >
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="Menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              className={classes.grow}
-              color="inherit"
-              align="center"
-              variant="h6"
-            >
-              Build me a playlist
-          </Typography>
-            <Button color="inherit">Signup</Button>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
+        <Header />
         <Paper
           className={classes.optionPaper}
           elevation={1}
@@ -103,16 +79,16 @@ class LandingPage extends Component {
             >
               My playlists
             </Button>
-            /playlist/[HASH]
+            /playlists/[HASH]
             <Divider />
             <Button
               component={Link}
-              to="/search"
+              to="/choose"
               color="inherit"
             >
-              Search
+              Choose
             </Button>
-            /search (do we even need this?)
+            /choose 
             <Divider/>
           </Typography>
         </Paper>
