@@ -16,12 +16,6 @@ const styles = theme =>({
   itemText: {
     fontSize: "small",
   },
-  youtube: {
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-  },
 });
 
 //PlaylistItem creates a playlist item, and when clicked, it expands to
@@ -56,7 +50,6 @@ class PlaylistItem extends Component {
     return (
       <iframe
         style={{
-          //position: "absolute",
           top: 0,
           left: 0,
           width: "200px",
@@ -83,7 +76,6 @@ class PlaylistItem extends Component {
     return (
       <ExpansionPanel onChange={this.handleToggle}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          {/* <Typography className={classes.heading}>Expansion Panel 1</Typography> */}
           <ListItemText classes={{ primary: classes.itemText }} primary={index} />
           <ListItemText classes={{ primary: classes.itemText }} primary={songTitle} />
           <ListItemText classes={{ primary: classes.itemText }} primary={artist} />
