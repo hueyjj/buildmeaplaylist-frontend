@@ -64,10 +64,9 @@ const styles = theme => ({
   },
   expansionPanel: {
     marginTop: theme.spacing.unit * 2,
-    width: "500px",
   },
   detail: {
-    height: "400px",
+    display: "block",
   },
 });
 
@@ -170,17 +169,35 @@ class Playlist extends Component {
 
   renderYoutube = () => {
     const embedYoutubeURL = "https://youtube.com/embed/nIjVuRTm-dc";
-
     return (
       <iframe
         style={{
           top: 0,
           left: 0,
-          width: "100%",
-          height: "100%",
+          // width: "300px",
+          // height: "300px",
+          margin: "15px", 
         }}
         src={embedYoutubeURL}
         frameBorder="0"
+      />
+    );
+  }
+
+  renderSpotify = () => {
+    const embedSpotifyURL = "https://open.spotify.com/embed/track/7sapKrjDij2fpDVj0GxP66";
+    return (
+      <iframe
+        style={{
+          top: 0,
+          left: 0,
+          // width: "300px",
+          // height: "300px",
+          margin: "15px", 
+        }}
+        src={embedSpotifyURL}
+        frameBorder="0"
+        allow="encrypted-media"
       />
     );
   }
@@ -261,6 +278,7 @@ class Playlist extends Component {
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.detail}>
               {this.renderYoutube()}
+              {this.renderSpotify()}
             </ExpansionPanelDetails>
           </ExpansionPanel>
         </Paper>
