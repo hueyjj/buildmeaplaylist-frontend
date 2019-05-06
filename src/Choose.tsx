@@ -26,7 +26,7 @@ const music = [
   { songTitle: "Moves Like Jagger ft. Christina Aguilera", artist: "Maroon 5", user: "hueyjj", date: "August 12, 2019", youtubeURL: "https://www.youtube.com/watch?v=iEPTlhBmwRg", thumbsUp: 700 },
 ];
 
-const styles = theme =>({
+const styles = theme => ({
   card: {
     minWidth: "500px",
   },
