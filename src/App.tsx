@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Button></Button>
+      <Button value="Click me" onClick={() => alert("you clicked me!")} />
     </div>
   );
 };

@@ -7,8 +7,14 @@ const StyledButton = styled.button`
   color: white;
 `
 
-export class Button extends React.Component<{}, {}> {
+export interface Props {
+  value?: string;
+  onClick?(): void;
+}
+
+export class Button extends React.Component<Props, {}> {
   render() {
-    return <StyledButton>hello</StyledButton>;
+    const { value, onClick } = this.props;
+    return <StyledButton onClick={onClick}>{value}</StyledButton>;
   }
 }
