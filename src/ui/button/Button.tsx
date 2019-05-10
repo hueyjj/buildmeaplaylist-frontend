@@ -14,7 +14,12 @@ export interface Props {
 
 export class Button extends React.Component<Props, {}> {
   render() {
-    const { value, onClick } = this.props;
-    return <StyledButton onClick={onClick}>{value}</StyledButton>;
+    const {
+      value,
+      onClick,
+    } = this.props;
+    return (
+      <StyledButton onClick={onClick}>{value}</StyledButton>
+    );
   }
 }

@@ -1,12 +1,20 @@
 import React from "react";
-import 'styled-components'
-import { Button } from "./ui/button";
+import { 
+  BrowserRouter, 
+  Switch,
+  Route,
+} from "react-router-dom";
+import { Home } from "./page/Home";
+import { Playlist } from "./page/Playlist";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <Button value="Click me" onClick={() => alert("you clicked me!")} />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/playlists" component={Playlist} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 
