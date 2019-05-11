@@ -9,10 +9,10 @@ import { Playlist } from "./page/Playlist";
 import { Navigation, NavigationItem } from "./ui/navigation";
 
 const navItems: NavigationItem[] = [
-  { value: "Home" },
-  { value: "Playlist" },
-  { value: "Ask" },
-  { value: "Questions" },
+  { value: "Home", linkTo: "/", },
+  { value: "Playlist", linkTo: "/playlists", },
+  { value: "Ask", linkTo: "/questions/ask", },
+  { value: "Questions", linkTo: "/questions", },
 ];
 
 const App: React.FC = () => {

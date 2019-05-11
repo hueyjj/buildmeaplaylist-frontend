@@ -1,10 +1,13 @@
 import React from "react";
-import { Navigation } from "./Navigation";
+import { Navigation, NavigationProps } from "./Navigation";
 
-export class SideNavigation extends React.Component<Navigation, {}> {
+export class SideNavigation extends React.Component<NavigationProps, {}> {
   render() {
+    const {
+      items,
+    } = this.props;
     return (
-      <div className="side-nav"></div>
+      <Navigation items={items}/>
     );
   }
 }
